@@ -145,23 +145,43 @@ Sample Input2: `("aa", "aab")`
 Sample Output2: `True`
 
 ```swift
-var sampleQ6 = ("a", "baab")
-var count1 = sampleQ6.0.count
-var trueCount = 0
-var count2 = sampleQ6.1.count
-var falseCount = 0
-for x in sampleQ6.0 {
-for y in sampleQ6.1 {
-if x == y {
-trueCount += 1
-} else {
-falseCount += 1
+var sampleQ6 = ("aa", "aaba")
+var Ransom = sampleQ6.0
+var Mag = sampleQ6.1
+let vowels = "aeiou"
+let consonants = "bcdfghjklmnpqrstvwxyz"
+var vowelCountM = 0
+var consonantCountM = 0
+var vowelCountR = 0
+var consonantCountR = 0
+for a in Mag {
+for b in vowels {
+if a == b {
+vowelCountM += 1
+}
+}
+for c in consonants {
+if c == a {
+consonantCountM += 1
 }
 }
 }
-if falseCount >= count1 {
-print("false")
-} else {
+
+for a in Ransom {
+for b in vowels {
+if a == b {
+vowelCountR += 1
+}
+}
+for c in consonants {
+if c == a {
+consonantCountR += 1
+}
+}
+}
+if vowelCountR <= vowelCountM && consonantCountR <= consonantCountM {
 print("true")
+} else {
+print("false")
 }
 ```
