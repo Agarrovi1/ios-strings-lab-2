@@ -9,7 +9,11 @@ You are given a string stored in variable `problem`. Write code so that you prin
 ```swift
 var problem = "split this string into words and print them on separate lines"
 
-// Your code
+var problem = "split this string into words and print them on separate lines"
+for a in problem.components(separatedBy: " ") {
+print("\(a)")
+}
+
 ```
 
 Example
@@ -39,6 +43,9 @@ Given a string `testString` create a new variable called `condensedString` that 
 
 ```swift
 let testString = "  How   about      thesespaces  ?  "
+
+var condensedString = testString.replacingOccurrences(of: "  ", with: " ")
+
 //condensedString = " How about thesespaces ? "
 ```
 
@@ -53,6 +60,15 @@ Sample Input: `"Swift is the best language"`
 
 Sample Output: `"language best the is Swift"`
 
+```swift
+var reversed = sample.components(separatedBy: " ")
+var answerQ3 = ""
+for a in reversed {
+answerQ3 = "\(a) " + answerQ3
+}
+print(answerQ3)
+```
+
 
 ## Question 4
 
@@ -63,6 +79,17 @@ Example:
 Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
+
+```swift
+var sample = "danaerys dad cat civic bottle"
+var palindromeCount = 0
+for a in sample.components(separatedBy: " ") {
+if a == String(a.reversed()) {
+palindromeCount += 1
+}
+}
+print(palindromeCount)
+```
 
 
 ## Question 5
@@ -83,6 +110,23 @@ Sample Input: `"PPALLP"`
 
 Sample Output: `true`
 
+```swift
+var L = "LLL"
+var A = 0
+for a in sampleQ5 {
+if a == "P" {
+continue
+}else if a == "A" {
+A += 1
+}
+}
+if sampleQ5.contains(L) == true || A > 1{
+print("false")
+} else {
+print("true")
+}
+
+```
 
 ## Question 6
 
@@ -99,3 +143,25 @@ Sample Output1: `False`
 Sample Input2: `("aa", "aab")`
 
 Sample Output2: `True`
+
+```swift
+var sampleQ6 = ("a", "baab")
+var count1 = sampleQ6.0.count
+var trueCount = 0
+var count2 = sampleQ6.1.count
+var falseCount = 0
+for x in sampleQ6.0 {
+for y in sampleQ6.1 {
+if x == y {
+trueCount += 1
+} else {
+falseCount += 1
+}
+}
+}
+if falseCount >= count1 {
+print("false")
+} else {
+print("true")
+}
+```
